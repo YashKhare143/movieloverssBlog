@@ -1,0 +1,155 @@
+{% extends 'basic.html' %}
+{% block title %} {{post.title}} {% endblock %}
+
+{%block NoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock NoOfYouWillLoveToKnowPosts %}
+{%block NoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock NoOFSuperHeroPosts %}
+{%block NoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock NoOFHollywoodPost %}
+{%block NoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock NoOFBollywoodPost %}
+{%block NoOFAnimePost %}{{NoOFAnimePosts}}{% endblock NoOFAnimePost %}
+{%block SNoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock SNoOfYouWillLoveToKnowPosts %}
+{%block SNoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock SNoOFSuperHeroPosts %}
+{%block SNoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock SNoOFHollywoodPost %}
+{%block SNoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock SNoOFBollywoodPost %}
+{%block SNoOFAnimePost %}{{NoOFAnimePosts}}{% endblock SNoOFAnimePost %}
+
+{%block navbar %}navbar-light{% endblock navbar %} 
+{%block navbg %}bg-light{% endblock navbg %}
+
+{%block navbar2 %}navbar-light{% endblock navbar2 %} 
+{%block navbg2 %}bg-light{% endblock navbg2 %}
+
+{% block style %}
+<style>
+  
+  .title{
+    font-size: 1.5rem;
+    /* text-indent: 0 !important; */
+    /* float: left; */
+    margin: 0 0 60px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    text-align:center;
+    font-size: 32px;
+    letter-spacing: 0em;
+    line-height: 1em;
+    text-transform: none;
+    font-family: futura-pt;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 31px;
+    letter-spacing: .4em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+    color: #081359;
+    order: 2;
+}
+.blog-post{
+  line-height:30px;
+}
+.container{
+  overflow-x:hidden;
+}
+p{
+  text-indent: 0 !important;
+}
+  @media (max-width: 1024px) {
+   
+  }
+
+  @media (max-width: 991px) {
+    
+  }
+  @media (max-width: 768px) {
+    img{
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  h1{
+    font-size: 1.3rem;
+   
+    /* float: left; */
+  }
+  p{
+    text-indent: 0 !important;
+  }
+  }
+
+  @media (max-width: 425px) {
+    img{
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  h1{
+    font-size: 1.3rem;
+  
+    /* float: left; */
+  }
+  p{
+    text-indent: 0 !important;
+  }
+  }
+
+  @media (max-width: 375px) {
+    img{
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  h1{
+    font-size: 1.3rem;
+ 
+    /* float: left; */
+  }
+  p{
+    text-indent: 0 !important;
+  }
+  }
+</style>
+  
+  
+
+{% endblock style %}
+
+{% block body %}
+<section class="blogPostApp">
+  <div class="container">
+    <div class="row g-5 mt-4 mb-4">
+      <div class="col" style="padding-right: 0; padding-left: 0">
+        <h1 class="title pb-2 mb-3 fst-italic border-bottom">{{post.title}}</h1>
+
+        <article class="blog-post py-5">
+          <p class="blog-post-meta">
+            {{post.pub_date}} by <a href="/aboutus">{{post.author}} </a>
+            <i class="fa-solid fa-eye" style="float: right">
+              <span class="text-muted" style="margin-left: 4px;"> {{ view}} </span>
+            </i>
+           
+          </p>
+          <p class="content">{{post.content|safe}}</p>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3861576242908642"
+                crossorigin="anonymous"></script>
+            <!-- display adds -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-3861576242908642"
+                data-ad-slot="2553654062"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </article>
+        
+        <div
+          class="fb-comments"
+          data-href="http://127.0.0.1:8000/blog/{{post.slug}}"
+          data-width=""
+          data-numposts="5"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

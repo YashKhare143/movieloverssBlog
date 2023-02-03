@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3861576242908642"
+     crossorigin="anonymous"></script>
+     <!-- Required meta tags -->
+     <meta charset="utf-8" />
+     <meta name="description" content="movielovers" >
+     <meta name="keywords" content="movie,lovers,blog" >
+     <meta
+       name="viewport"
+       content="width=device-width, initial-scale=1, shrink-to-fit=no"
+     />
+    
+    
+    
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJPQS516GZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VJPQS516GZ');
+    </script>
+    
+    {% load static %}
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+    <!-- Bootstrap CSS -->
+    <!-- <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.2/examples/offcanvas-navbar/"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100;1,400&display=swap" rel="stylesheet">
+    
+    <title>{% block title %} {% endblock %}</title>
+    
+    <!-- <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v14.0&appId=2463497227115947&autoLogAppEvents=1"
+      nonce="dzc1ywlR"
+    ></script> -->
+
+    <style>
+      :root {
+        --main_color: #6528E0;
+        --sec_color: linear-gradient(90deg, rgba(255,153,51,1) 0%, rgba(222,228,222,1) 50%, rgba(19,136,8,1) 100%);
+        --font-family: futura-pt;
+        --letter-spacing: 0.1em;
+        --font-size: 42px;
+        --font-weight: lighter;
+      }
+
+      *,
+      ::after,
+      ::before {
+        box-sizing: content-box;
+        /* font-family: var(--font-family) */
+      }
+      body {
+        background: #f8f9fa !important;
+      }
+      .app::-webkit-scrollbar {
+        display: none;
+      }
+      .AboutApp{
+        height: 100vh;
+        width: auto;
+        background-color: #212529;
+        text-shadow: 0 0.05rem 0.1rem rgb(0 0 0 / 50%);
+    box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
+      }
+      .cover-container{
+        max-width: 42em;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .tf1{
+        visibility: hidden;
+        display: none;
+      }
+      
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav-scroller .nav .active {
+        font-weight: 500;
+        color: #6528E0;
+      }
+      .nav-scroller .nav .active:hover {
+        /* font-weight: 500; */
+        transform: translateY(0px);
+        /* color: #b533cf; */
+      }
+      .nav-scroller .nav a {
+        transition: 0.2s ease-in-out;
+      }
+      .nav-scroller .nav a:hover {
+        color: #6528E0;
+        transform: translateY(-2px);
+      }
+      .nav-scroller .nav-link {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 0.875rem;
+        color: #6c757d;
+      }
+      .BlogApp {
+        height:fit-content;
+        min-height: 100vh;
+      }
+      .homeApp {
+        height: fit-content;
+      }
+      .blogPostApp {
+        min-height: 100vh;
+        height: fit-content;
+        /* overflow-y: auto; */
+      }
+      .ContactApp {
+        height: 100vh;
+        /* overflow-y: auto; */
+      }
+      .SearchApp {
+        height: auto;
+        /* overflow-y: auto; */
+      }
+
+      .fb-like {
+        float: right;
+      }
+
+      .row {
+        flex-wrap: nowrap;
+        margin-right: 0;
+        margin-left: 0;
+      }
+      .pC {
+        transform: scale(0.99);
+        padding: 0;
+        box-sizing: content-box;
+        transition: 0.1s;
+        border-radius: 0.55rem !important;
+      }
+      .pC:hover {
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.616);
+        transform: scale(1);
+      }
+      .form-control {
+        height: calc(1.25rem + 11px);
+        box-sizing: border-box;
+      }
+      .col-auto {
+        padding-right: 0;
+      }
+      .search_btn {
+        padding: 1px 8px;
+        transition: 0.3;
+        color: white;
+        /* border-color: rgb(126 34 206); */
+        transition: 0.3;
+        background-color: var(--main_color);
+        border-color: var(--main_color);
+        outline: none;
+      }
+      .search_btn:hover{
+        color: white;
+        background-color: var(--main_color);
+        border-color: var(--main_color);
+      }
+      .container {
+        width: auto;
+      }
+      .logo {
+        color: var(--main_color);
+        /* background: var(--sec_color);
+        background-clip: text;
+	      -webkit-background-clip: text;
+	      -webkit-text-fill-color: transparent; */
+      }
+      .navbar-light .navbar-brand {
+        color: var(--main_color);
+        font-size: x-large;
+        font-weight: 400;
+        padding-top: 0;
+        /* transition: 0.1s ease-in-out; */
+      }
+      #token{
+        display: none;
+      }
+      .navbar-light .navbar-brand:hover {
+        color: var(--main_color);
+        /* transform: scale(1.01); */
+      }
+      .navbar-light .navbar-nav .nav-link {
+        color: rgba(0, 0, 0, 0.7);
+        transition: 0.1s ease-in-out;
+      }
+      .navbar-light .navbar-nav .active {
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.7);
+        transition: 0.1s ease-in-out;
+      }
+      .navbar-light .navbar-nav .nav-link:focus,
+      .navbar-light .navbar-nav .nav-link:hover {
+        color: var(--main_color);
+      }
+
+      .closebtn {
+        margin-left: 15px;
+        color: rgb(61, 88, 80);
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+      .rounded {
+        border-radius: 0.55rem !important;
+      }
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgb(0 0 0 / 10%),
+          inset 0 0.125em 0.5em rgb(0 0 0 / 15%);
+      }
+      .card-img-top {
+        width: 45%;
+        border-top-left-radius: calc(0.25rem - 1px);
+        border-top-right-radius: calc(0.25rem - 1px);
+        /* margin-top: 10%; */
+        /* margin-block-start: auto; */
+      }
+      .sidebar-toggler {
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+      .sidebar-toggler {
+        color: rgba(0, 0, 0, 0.5);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+      .share-btn-container{
+        background: #EAC94C;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        position: fixed;
+        top: 50%;
+        height: 5%;
+        transform: translateY(-50%);
+        border-radius: 8px 0px 0px 8px;
+        transition: .3s;
+        right: 0;
+        z-index: 100;
+        overflow: hidden;
+ 
+      }
+      .share-btn-container .share-links {
+        opacity: 0;
+        visibility: hidden;
+        transition: .1s;
+        filter: blur(5px);
+      }
+      .share-btn-container a i{
+        font-size: 32px;
+      }
+      .share-btn-container a{
+        margin: 12px 0;
+        transition: .2s;
+      }
+      .share-btn-container a:hover{
+        transform: scale(1.1);
+      }
+      
+      .share-btn-container .fa-facebook{
+        color: #1877f2;
+      }
+      .share-btn-container .fa-twitter{
+        color: #1da1f2;
+      }
+      .share-btn-container .fa-whatsapp{
+        color: #075e54;
+      }
+      .share-btn-container .fa-ellipsis{
+        color: #000000c2;
+      }
+      .share-btn-container.active  {
+        background-color: #fff;
+        height: 27%;
+        transition: .2s;
+        justify-content: space-evenly;
+      }
+      .share-btn-container.active .share-links {
+        opacity: 1;
+        visibility: visible;
+        transition: .3s;
+        filter: blur(0px);
+      }
+      @media (max-width: 1024px) {
+        .tf1{
+        visibility: hidden;
+        display: none;
+      }
+      .form-inline .form-control {
+      display: inline-block;
+      /* width: auto; */
+      flex: 1%;
+      margin-left: 0;
+      vertical-align: middle;
+}
+      }
+
+      @media (max-width: 991px) {
+        .nav-scroller {
+          display: none;
+          visibility: hidden;
+        }
+        
+      }
+      @media (max-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+        .tf1{
+        visibility: visible;
+        display: block;
+      }
+      }
+     
+      @media (max-width: 550px) {
+        .share-btn-container{
+          transform: unset;
+          top: unset;
+          left: 0;
+          bottom: 0;
+          width: 20%;
+          flex-direction: row;
+          box-shadow: 4px 0px 8px rgb(0 0 0 / 30%);
+          padding: 16px 0;
+          justify-content: space-evenly;
+          background-color: #fff;
+          height: auto;
+          transition: .2s;
+          z-index: 100;
+          background: #eac94c;
+          border-radius: 0 16px 0 0;
+        }
+        .share-btn-container a{
+          margin: auto;
+        }
+        .share-btn-container .share-links {
+          display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        filter: blur(5px);
+      }
+        .share-btn-container.active{
+          transform: unset;
+          top: unset;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          flex-direction: row;
+          box-shadow: 4px 0px 8px rgba(0,0,0,0.3);
+          padding: 16px 0;
+          justify-content: space-evenly;
+          background-color: #fff;
+          height: auto;
+          transition: .2s;
+          z-index: 100;
+          border-radius: 0 0 0 0;
+        }
+        .share-btn-container.active .share-links {
+          display: block;
+        opacity: 1;
+        visibility: visible;
+        transition: .3s;
+        filter: blur(0px);
+      }
+      }
+    
+      @media (max-width: 425px) {
+        .tf1{
+        visibility: visible;
+        display: block;
+      }
+      }
+
+      @media (max-width: 375px) {
+        .tf1{
+        visibility: visible;
+        display: block;
+      }
+      }
+      .badge{
+        background-color: #EAC94C!important;
+      }
+    </style>
+
+    {% block style %}{% endblock style %}
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg {%block navbar %}{% endblock navbar %} {%block navbg %}{% endblock navbg %}" style="position: sticky;top:0;z-index: 100;">
+      <a
+        class="logo navbar-brand"
+        style="margin-left: 25px; margin-right: 0"
+        href="/"
+        >MovieLoverss</a
+      >
+      <form id="T_F" class="tf1" method="post" action="/subscribeUs">
+        {% csrf_token %}
+        <input
+      type="text"
+      class="form-control"
+      id="token"
+      aria-describedby="token"
+      name="token"
+      required
+    />
+      <button type="button" id="subscribe" class="btn btn-danger" onClick="subscribeUs();">SubscribeUs</button>    
+      </form>
+      
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse ml-5 navbar-collapse" id="navbarSupportedContent">
+        <form
+          method="get"
+          action="/search"
+          class="form-inline my-2 my-lg-0"
+          style="flex: .98;
+          align-items: center;
+          
+          justify-content: flex-end;"
+        >
+          <input
+            id="query"
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="query"
+            style="
+            height: 40px;
+            flex: .7;border-radius: 10px 0 0px 10px;"
+          />
+          <button
+            class="search_btn btn my-2 my-sm-0"
+            type="submit"
+            style=" 
+            font-size:23px;
+            border-radius: 0 10px 10px 0px;"
+          >
+          <span style="font-size:20px"><i class="fa-solid fa-magnifying-glass"></i></span>
+          </button>
+        </form>
+        <ul class="navbar-nav ml-5 mr-auto">
+          <li class="nav-item {% block homeactive %}{% endblock homeactive %}">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item {% block blogactive %}{% endblock blogactive %}">
+            <a class="nav-link" href="/blog/?page=1">Blog</a>
+          </li>
+          <li class="nav-item {% block cricketactive %}{% endblock cricketactive %}">
+            <a class="nav-link" href="/cricket/?page=1">CricketLovers</a>
+          </li>
+          <li
+            class="nav-item {% block aboutactive %}{% endblock aboutactive %}"
+          >
+            <a class="nav-link" href="/aboutus">AboutUs</a>
+          </li>
+          <li
+            class="nav-item {% block contactactive %}{% endblock contactactive %}"
+          >
+            <a class="nav-link" href="/contactus">ContactUs</a>
+          </li>
+          <li
+            class="nav-item ml-5 %}"
+          >
+          <form id="T_F" method="post" action="/subscribeUs">
+            {% csrf_token %}
+            <input
+          type="text"
+          class="form-control"
+          id="token"
+          aria-describedby="token"
+          name="token"
+          required
+        />
+          <button type="button" id="subscribe" class="btn btn-danger" onClick="subscribeUs();">SubscribeUs</button>    
+          </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="nav-scroller shadow-sm {%block navbar2 %}{% endblock navbar2 %} {%block navbg2 %}{% endblock navbg2 %}" style="position: sticky; top:56px; z-index: 100;">
+      <nav
+        class="nav"
+        aria-label="Secondary navigation"
+        style="margin-right: 10%; float: right"
+      >
+
+        <a
+          class="nav-link {%block youWillLoveToKnowactive %}{% endblock youWillLoveToKnowactive %}"
+          href="/blog/category/you-will-love-to-know"
+        >
+          #You will love to know
+          <span class="badge text-bg-light rounded-pill align-text-bottom">
+            {%block NoOfYouWillLoveToKnowPosts %}{% endblock NoOfYouWillLoveToKnowPosts %}</span
+          >
+        </a>
+        <a
+          class="nav-link {%block superheroactive %}{% endblock superheroactive %}"
+          href="/blog/category/superhero"
+        >
+          #SuperHero
+          <span class="badge text-bg-light rounded-pill align-text-bottom"
+            >{%block NoOFSuperHeroPosts %}{% endblock NoOFSuperHeroPosts%}</span
+          >
+        </a>
+        <a
+          class="nav-link {%block hollywoodactive %}{% endblock hollywoodactive %}"
+          href="/blog/category/hollywood"
+        >
+          #Hollywood
+          <span class="badge text-bg-light rounded-pill align-text-bottom"
+            >{%block NoOFHollywoodPost %}{% endblock NoOFHollywoodPost %}</span
+          >
+        </a>
+        <a
+          class="nav-link {%block bollywoodactive %}{% endblock bollywoodactive %}"
+          href="/blog/category/bollywood"
+        >
+          #Bollywood
+          <span class="badge text-bg-light rounded-pill align-text-bottom"
+            >{%block NoOFBollywoodPost %}{% endblock NoOFBollywoodPost %}</span
+          >
+        </a>
+
+      </nav>
+    </div>
+
+    <div
+      class="offcanvas d-flex flex-column flex-shrink-0 p-3 bg-light offcanvas-start"
+      data-bs-scroll="false"
+      tabindex="-1"
+      id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel"
+    >
+      <div class="offcanvas-header" style="margin-right:15px;">
+        <h5 class="offcanvas-title" id="staticBackdropLabel">Movie Loverss</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body" style="margin-right:15px;">
+        <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+          <input
+          id="query"
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="query"
+          style="
+          height: 40px;
+          flex: 1;border-radius: 10px 0 0px 10px;"
+        />
+        <button
+          class="search_btn btn my-2 my-sm-0"
+          type="submit"
+          style=" 
+          font-size:23px;
+          border-radius: 0 10px 10px 0px;"
+        >
+        <span style="font-size:20px"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </button>
+        </form>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a
+              href="/"
+              class="nav-link {% block Shomeactive %}{% endblock Shomeactive %}"
+              aria-current="page"
+            >
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <i class="fa-solid fa-house-chimney"></i>
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/blog/?page=1"
+              class="nav-link {% block Sblogactive %}{% endblock Sblogactive %}"
+            >
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <i class="fa-solid fa-blog"></i>
+              </svg>
+              Blog
+            </a>
+          </li>
+          <li>
+            <a
+              href="/cricket/?page=1"
+              class="nav-link {% block Scricketactive %}{% endblock Scricketactive %}"
+            >
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <i class="fa-solid fa-blog"></i>
+              </svg>
+              CricketLovers
+            </a>
+          </li>
+          <li>
+            <a
+              href="/aboutus"
+              class="nav-link {% block Saboutactive %}{% endblock Saboutactive %}"
+            >
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <i class="fa-solid fa-address-card"></i>
+              </svg>
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contactus"
+              class="nav-link {% block Scontactactive %}{% endblock Scontactactive %}"
+            >
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <i class="fa-solid fa-message"></i>
+              </svg>
+              Contact Us
+            </a>
+          </li>
+          
+        </ul>
+        <hr />
+
+        <div class="category">
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link {%block SyouWillLoveToKnowactive %}{% endblock SyouWillLoveToKnowactive %}"
+                href="/blog/category/you-will-love-to-know"
+              >
+                #You will love to know
+                <span
+                  class="badge text-bg-light rounded-pill align-text-bottom"
+                >
+                  {%block SNoOfYouWillLoveToKnowPosts %}{% endblock SNoOfYouWillLoveToKnowPosts %}</span
+                >
+              </a>
+            </li>
+            
+            <li>
+              <a
+                class="nav-link {%block Ssuperheroactive %}{% endblock Ssuperheroactive %}"
+                href="/blog/category/superhero"
+              >
+                #SuperHero
+                <span class="badge text-bg-light rounded-pill align-text-bottom"
+                  >{%block SNoOFSuperHeroPosts %}{% endblock SNoOFSuperHeroPosts%}</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link {%block Shollywoodactive %}{% endblock Shollywoodactive %}"
+                href="/blog/category/hollywood"
+              >
+                #Hollywood
+                <span class="badge text-bg-light rounded-pill align-text-bottom"
+                  >{%block SNoOFHollywoodPost %}{% endblock SNoOFHollywoodPost%}</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link {%block Sbollywoodactive %}{% endblock Sbollywoodactive %}"
+                href="/blog/category/bollywood"
+              >
+                #Bollywood
+                <span class="badge text-bg-light rounded-pill align-text-bottom"
+                  >{%block SNoOFBollywoodPost %}{% endblock SNoOFBollywoodPost%}</span
+                >
+              </a>
+            </li>
+            <li>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    {% for message in messages %}
+    
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>Message: </strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %} 
+    <div class="share-btn-container" >
+      <a class="share-btn" onclick="popout()"><i class="fa-solid fa-share-nodes"></i></a>
+      <a href="#" class="facebook-btn share-links" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="whatsapp-btn share-links" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#" class="twitter-btn share-links" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#" class="more-share-btn share-links" target="_blank"><i class="fa-solid fa-ellipsis"></i></a>
+      <!-- <div class="share-links">
+        
+      </div> -->
+    </div>
+    {% block body %} 
+    
+    {% endblock %}
+    <section class="footer {% block footerDark %}{% endblock footerDark %}">
+      <div class="b-example-divider"></div>
+      <div class="container">
+        <footer class="mb-0 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="/" class="nav-link px-2 ">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/blog" class="nav-link px-2 ">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.instagram.com/movieloverss_/"
+                class="nav-link px-2 "
+                >Instagram</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/aboutus" class="nav-link px-2 ">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="/contactus" class="nav-link px-2 ">Contact</a>
+            </li>
+          </ul>
+          <p class="text-center ">© 2022 Movieloverss, Inc</p>
+        </footer>
+      </div>
+    </section>
+    {% block js %}{% endblock js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script>
+    $("#token").hide();
+  </script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-messaging.js"></script>
+    <script src="{% static '/js/firebaseSDK.js' %}">
+    </script>
+    <script>
+      var i=0;
+        function popout(){
+          var action = document.querySelector('.share-btn-container');
+                    action.classList.toggle('active');
+                    i=1;
+        }
+        function mouseleave() {
+          var action = document.querySelector('.share-btn-container');
+          action.classList.remove('active')
+        }
+        
+        const facebookBtn = document.querySelector(".facebook-btn");
+        const twitterBtn = document.querySelector(".twitter-btn");
+        const whatsappBtn = document.querySelector(".whatsapp-btn");
+        const shareButton = document.querySelector(".share-btn");
+        const moreShareBtn = document.querySelector(".more-share-btn");
+
+        let postUrl = encodeURI(window.document.location.href);
+        let postTitle = encodeURI(window.document.title);
+        function init() {
+          facebookBtn.setAttribute(
+            "href",
+            `https://www.facebook.com/sharer.php?u=${postUrl}`
+          );
+
+          twitterBtn.setAttribute(
+            "href",
+            `https://twitter.com/share?url=${postUrl}&text=${postTitle}`
+          );
+
+          whatsappBtn.setAttribute(
+            "href",
+            `https://wa.me/?text=${postTitle} ${postUrl}`
+          );
+        }
+        init();
+        moreShareBtn.addEventListener('click',()=>{
+          if(navigator.share){
+            navigator.share({
+              title:`${postTitle}`,
+              url:`${postUrl}`,
+            }).then(()=>{
+              console.log("thanks for sharing");
+              
+            }).catch(console.error);
+          }else{
+            
+          }
+        })
+        // window.addEventListener('click',()=>{
+        //   if(i==1){
+        //     popout()
+        //     i=0
+        //   }
+        // })
+
+
+ 
+ </script>
+    <!-- <script>
+     
+
+
+    </script> -->
+    
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/9353e8076e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script> -->
+   
+    
+  </body>
+</html>

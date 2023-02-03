@@ -1,0 +1,480 @@
+{% extends 'basic.html' %}
+{% block title %} SearchResults for {{query}} {% endblock %}
+{% block blogactive %}active{% endblock blogactive %}
+
+{%block NoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock NoOfYouWillLoveToKnowPosts %}
+{%block NoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock NoOFSuperHeroPosts %}
+{%block NoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock NoOFHollywoodPost %}
+{%block NoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock NoOFBollywoodPost %}
+{%block NoOFAnimePost %}{{NoOFAnimePosts}}{% endblock NoOFAnimePost %}
+
+{%block SNoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock SNoOfYouWillLoveToKnowPosts %}
+{%block SNoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock SNoOFSuperHeroPosts %}
+{%block SNoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock SNoOFHollywoodPost %}
+{%block SNoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock SNoOFBollywoodPost %}
+{%block SNoOFAnimePost %}{{NoOFAnimePosts}}{% endblock SNoOFAnimePost %}
+
+{%block navbar %}navbar-light{% endblock navbar %} 
+{%block navbg %}bg-light{% endblock navbg %}
+
+{%block navbar2 %}navbar-light{% endblock navbar2 %} 
+{%block navbg2 %}bg-light{% endblock navbg2 %}
+{% block js %}
+<script>
+let preview = document.getElementsByClassName("preview");
+Array.from(preview).forEach((e)=>{
+  e.innerHTML = e.innerText
+})
+</script> 
+{% endblock js %}
+{% block style %}
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 9px;
+    
+  }
+ 
+  .td_module_column {
+    height: 96%;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+
+  }
+  .td-module-meta-info h3 a{
+    transition: .2s;
+  }
+  .td_module_column:hover .td-module-meta-info h3 a{
+    /* transform: scale(1); */
+    color: rgb(22, 121, 235);
+  }
+  .td_flex_block_3 .td_module_column,
+  .td_flex_block_4 .td_module_column {
+    float: left;
+  }
+  .tdi_60 .td_module_wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .tdi_60 .td_module_flex_3 {
+    width: 100%;
+    float: left;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+  }
+  .td_module_flex_1,
+  .td_module_flex_3,
+  .td_module_flex_4,
+  .td_module_flex_5 {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 0;
+  }
+  .td_module_wrap {
+    position: relative;
+    padding-bottom: 0;
+  }
+  .td_module_flex_3 .td-module-container {
+    border-color: #eaeaea;
+    align-items: initial;
+  }
+
+  .td_module_flex_3 .td-module-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+  }
+  .td_module_flex_3 .td-image-container {
+    flex: 0 0 26%;
+    width: 22%;
+  }
+  .td_module_flex_3 .td-module-thumb {
+    margin-bottom: 0;
+  }
+  .td_module_flex_3 .td-module-thumb {
+    padding-bottom: 70%;
+    display: block;
+    position: relative;
+    width: auto;
+    height: 100px;
+  }
+  .td_module_flex_3 .td-thumb-css {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+  }
+  .td-module-thumb .entry-thumb {
+    display: block;
+  }
+  .td_module_flex_3 .td-module-meta-info {
+    padding: 0 0 0 16px;
+    width: 100%;
+    flex: 0 0 73%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    justify-content: space-around;
+    /* background-color: #e9edf0; */
+    border: 0 solid #eaeaea;
+    min-height: 0;
+    font-family: "Open Sans", "Open Sans Regular", sans-serif;
+    font-size: 11px;
+    /* margin-bottom: 7px; */
+    line-height: 1;
+    min-height: 17px;
+    
+  }
+  .td_module_flex_3 .td-module-meta-info h3 {
+    display: block;
+    font-size: 1.95em;
+    margin-block-start: 0.7em;
+    margin-block-end: 0.1em;
+    flex: 30%;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    width: 92%;
+  }
+  .td-module-meta-info h3 a{
+      text-decoration: none;
+      color: black;
+      outline: none;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-post-date {
+    display: block;
+    justify-content: flex-start;
+  }
+  
+  @media (max-width: 1024px) {
+    /* .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid > article img {
+      width: 55%;
+      margin-left: 22%;
+    } */
+    .td_module_column {
+      height: 95%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 36%;
+    }
+    .grid > article img {
+      width: 51%;
+      margin-left: 25%;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 36%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.3em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+  }
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 53%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -29px;
+    }
+    .grid > article img {
+      width: 70%;
+      margin-left: 15%;
+    }
+    .td_module_column {
+      height: 96%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 43%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.3em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 70%;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 121px;
+    }
+    .hideDate{
+      font-size: 9px!important;
+      /* display: none; */
+    }
+    
+  }
+
+  @media (max-width: 425px) {
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 56%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -29px;
+    }
+    .grid > article img {
+      width: 40%;
+    }
+    .td_module_column {
+      height: 94%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 0;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 122px;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 40%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.6em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .hide{
+      display: none;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 56%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -22px;
+    }
+    .grid > article img {
+      width: 40%;
+    }
+    .td_module_column {
+      height: 94%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 0;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 122px;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 40%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.2em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .hide{
+      display: none;
+    }
+  }
+  .card-img-overlay {
+    background: rgba(14, 0, 12, 0.795);
+    /* position: absolute; */
+    top: 59%;
+    /* right: 0; */
+    bottom: 0;
+    /* left: 0; */
+    /* padding: var(--bs-card-img-overlay-padding); */
+    /* border-radius: var(--bs-card-inner-border-radius); */
+    display: flex;
+    flex-direction: column;
+    /* height: 26%; */
+    justify-content: end;
+    /* max-height: 50%; */
+    /* position: relative; */
+    margin-bottom: 0;
+}
+.btn-outline-primary {
+    --bs-btn-color: #6528E0;
+    --bs-btn-border-color: #6528E0;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #6528E0;
+    --bs-btn-hover-border-color: #6528E0;
+    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6528E0;
+    --bs-btn-active-border-color: #6528E0;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6528E0;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6528E0;
+    --bs-gradient: none;
+}
+</style>
+
+{% endblock style %}
+
+{% block body %}
+<section class="container SearchApp">
+    <div class="container mt-5 ml-2">
+        <h3 class="mt-5 mb-4">Search Results: </h3>
+        {% if allPost|length < 1 %} <div class="ml-5">
+            <div class="mb-2">Your search query- <b> {{query}} </b>- did not match any documents.</div>
+            <div class="mb-2">
+                <p class="mb-2"> Suggestions:</p>
+                <ul>
+                    <li>Make sure that all words are spelled correctly.</li>
+                    <li>Try different keywords.</li>
+                    <li>Try more general keywords.</li>
+                    <li>Try fewer keywords.</li>
+                </ul>
+
+            </div>
+    </div>
+
+
+
+
+    {% endif %}
+    
+    <main class="grid mb-4">
+        {% for item in allPost %}
+        <article>
+          <div class="td_module_column rounded">
+            <div
+              class="td_module_flex td_module_flex_3 td_module_wrap td-animation-stack rounded"
+            >
+              <div class="td-module-container td-category-pos- rounded">
+                <div class="td-image-container">
+                  <div class="td-module-thumb">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      class="td-image-wrap"
+                      title="Responsive Website With HTML, CSS &amp; Javascript"
+                      ><span
+                        class="entry-thumb td-thumb-css td-animation-stack-type0-2"
+                        data-type="css_image"
+                        data-img-url="/media/{{item.thumbnail}}"
+                        style="
+                          background-image: url('/media/{{item.thumbnail}}');
+                        "
+                      ></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="td-module-meta-info">
+                  <h3 class="entry-title td-module-title">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      >{{item.title|truncatewords:10}}</a
+                    >
+                    <span class="text-muted hide hideDate" style="font-size: 12px;float: right;"
+                      >{{item.pub_date}}</span
+                    >
+                  </h3>
+                  
+                  <div class="td-editor-date"  style="
+                  max-width: 92%;
+                  flex: 30%;
+                  font-size: 15px;
+                  ">
+
+                    <p class="preview card-text hide" style="line-height: initial">
+                      {{item.preContent|truncatewords:15}}
+                    </p>
+                  </div>
+                  <a href="/blog/{{item.slug}}" style="
+                  flex: 40%;
+                  display: flex;
+                  justify-content: end;
+                  align-items: center;
+                  /* justify-items: center; */
+                  margin-right: 24px;
+              ">   
+                  <button type="button" class="btn btn-outline-primary" style="float:right;">
+                    Continue Reading
+                  </button>               
+                </a>   
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </main>
+    </div>
+</section>
+{% endblock %}

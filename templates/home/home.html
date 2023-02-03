@@ -1,0 +1,737 @@
+{% extends 'basic.html' %} {% block title %} MovieLoverss - Home {% endblock %} 
+{%block homeactive %}active{% endblock homeactive %}
+{%block Shomeactive %}active{% endblock Shomeactive %}
+{%block NoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock NoOfYouWillLoveToKnowPosts %}
+{%block NoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock NoOFSuperHeroPosts %}
+{%block NoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock NoOFHollywoodPost %}
+{%block NoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock NoOFBollywoodPost %}
+{%block NoOFAnimePost %}{{NoOFAnimePosts}}{% endblock NoOFAnimePost %}
+
+{%block SNoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock SNoOfYouWillLoveToKnowPosts %}
+{%block SNoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock SNoOFSuperHeroPosts %}
+{%block SNoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock SNoOFHollywoodPost %}
+{%block SNoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock SNoOFBollywoodPost %}
+{%block SNoOFAnimePost %}{{NoOFAnimePosts}}{% endblock SNoOFAnimePost %}
+
+{%block navbar %}navbar-light{% endblock navbar %} 
+{%block navbg %}bg-light{% endblock navbg %}
+
+{%block navbar2 %}navbar-light{% endblock navbar2 %} 
+{%block navbg2 %}bg-light{% endblock navbg2 %}
+{%block subscribeText %}{{subscribeTest}}{% endblock subscribeText %}
+
+ {% block js %}
+<script>
+  let preview = document.getElementsByClassName("preview");
+  Array.from(preview).forEach((e) => {
+    e.innerHTML = e.innerText;
+  });
+</script>
+{% endblock js %} {% block style %}
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 9px;
+  }
+
+  .td_module_column {
+    height: 96%;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+
+  }
+  .td-module-meta-info h3 a {
+    transition: 0.2s;
+  }
+  .td_module_column:hover .td-module-meta-info h3 a {
+    /* transform: scale(1); */
+    color: rgb(22, 121, 235);
+  }
+  .td_flex_block_3 .td_module_column,
+  .td_flex_block_4 .td_module_column {
+    float: left;
+  }
+  .tdi_60 .td_module_wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .tdi_60 .td_module_flex_3 {
+    width: 100%;
+    float: left;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+  }
+  .td_module_flex_1,
+  .td_module_flex_3,
+  .td_module_flex_4,
+  .td_module_flex_5 {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 0;
+  }
+  .td_module_wrap {
+    position: relative;
+    padding-bottom: 0;
+  }
+  .td_module_flex_3 .td-module-container {
+    border-color: #eaeaea;
+    align-items: initial;
+  }
+
+  .td_module_flex_3 .td-module-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+  }
+  .td_module_flex_3 .td-image-container {
+    flex: 0 0 26%;
+    width: 22%;
+  }
+  .td_module_flex_3 .td-module-thumb {
+    margin-bottom: 0;
+  }
+  .td_module_flex_3 .td-module-thumb {
+    padding-bottom: 70%;
+    display: block;
+    position: relative;
+    width: auto;
+    height: 100px;
+  }
+  .td_module_flex_3 .td-thumb-css {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+  }
+  .td-module-thumb .entry-thumb {
+    display: block;
+  }
+  .td_module_flex_3 .td-module-meta-info {
+    padding: 0 0 0 16px;
+    width: 100%;
+    flex: 0 0 73%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    justify-content: space-around;
+    /* background-color: #e9edf0; */
+    border: 0 solid #eaeaea;
+    min-height: 0;
+    font-family: "Open Sans", "Open Sans Regular", sans-serif;
+    font-size: 11px;
+    /* margin-bottom: 7px; */
+    line-height: 1;
+    min-height: 17px;
+    
+  }
+  .td_module_flex_3 .td-module-meta-info h3 {
+    display: block;
+    font-size: 1.95em;
+    margin-block-start: 0.7em;
+    margin-block-end: 0.1em;
+    flex: 30%;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    width: 92%;
+  }
+  .td-module-meta-info h3 a {
+    text-decoration: none;
+    color: black;
+    outline: none;
+  }
+  .td-post-date {
+    display: block;
+  }
+
+
+  @media (max-width: 1024px) {
+    /* .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid > article img {
+      width: 55%;
+      margin-left: 22%;
+    } */
+    .td_module_column {
+      height: 95%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 36%;
+    }
+    .grid > article img {
+      width: 51%;
+      margin-left: 25%;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 36%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.3em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+  }
+  @media (max-width: 768px) {
+    .banner_contents{
+      margin-left: 40px!important;
+    }
+    .banner_title{
+      font-size: 1.3rem!important;
+    font-weight: 800!important;
+    width: 70%!important;
+    padding-bottom: 1.3rem!important;
+    }
+    .banner{
+      height: 26vh!important;
+    }
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 53%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -29px;
+    }
+    .grid > article img {
+      width: 70%;
+      margin-left: 15%;
+    }
+    .td_module_column {
+      height: 96%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 43%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.3em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 70%;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 121px;
+    }
+    .hideDate{
+      font-size: 9px!important;
+      /* display: none; */
+    }
+    .hide{
+      display: none!important;
+    }
+
+  }
+
+  @media (max-width: 425px) {
+    .banner_contents{
+      margin-left: 40px!important;
+    }
+    .banner_title{
+      font-size: 1.3rem!important;
+    font-weight: 800!important;
+    /* width: 40px; */
+        width: 70%!important;
+    padding-bottom: 1.3rem!important;
+    }
+    .banner{
+      height: 26vh!important;
+    }
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 56%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -29px;
+    }
+    .grid > article img {
+      width: 40%;
+    }
+    .td_module_column {
+      height: 94%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 0;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 122px;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 40%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.6em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .hide{
+      display: none!important;
+    }
+    
+  }
+
+  @media (max-width: 375px) {
+    .banner_contents{
+      margin-left: 40px!important;
+    }
+    .banner_title{
+      font-size: 1.3rem!important;
+    font-weight: 800!important;
+    width: 70%!important;
+    padding-bottom: 1.3rem!important;
+    }
+    .banner{
+      height: 26vh!important;
+    }
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 0;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info {
+      flex: 0 0 56%;
+    }
+    .td_module_flex_3 .td-module-meta-info .td-editor-date {
+      /* flex: 0 0 56%; */
+      margin-top: -22px;
+    }
+    .grid > article img {
+      width: 40%;
+    }
+    .td_module_column {
+      height: 94%;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0.25rem;
+    }
+    .td_module_flex_3 .td-module-thumb {
+      padding-bottom: 0;
+      display: block;
+      position: relative;
+      width: auto;
+      height: 122px;
+    }
+    .td_module_flex_3 .td-image-container {
+      flex: 0 0 40%;
+      width: 22%;
+    }
+    .td_module_flex_3 .td-module-meta-info h3 {
+      display: block;
+      font-size: 1.2em;
+      /* margin-block-start: 1em; */
+      margin-block-end: 0.1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .hide{
+      display: none!important;
+    }
+  }
+  .banner {
+    color: white;
+    object-fit: contain;
+    filter: brightness(0.9);
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 66vh;
+  }
+  .bImg1{
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 52%, rgba(0,0,0,0.5) 100%),url("media/{{latestPost.poster}}");
+    
+  }
+  
+.banner_contents {
+  margin-left: 100px;
+  padding-top: 13%;
+  height: fit-content;
+}
+.banner_title {
+  font-size: 3rem;
+  font-weight: 800;
+  width: 50%;
+  padding-bottom: 1.3rem;
+}
+.banner_description {
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 2rem;
+  font-size: 1.3rem;
+  max-width: 90%;
+  text-align: justify;
+  letter-spacing: 1.5px;
+  height: 80px;
+}
+
+.banner_button {
+  display: flex;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 2px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  background-color: rgba(51, 51, 51, 0.5);
+  transition: all 0.2s;
+}
+.banner_button:hover {
+  color: #000;
+  background-color: #e6e6e6;
+}
+  
+ 
+  .btn-outline-primary {
+    --bs-btn-color: #6528E0;
+    --bs-btn-border-color: #6528E0;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #6528E0;
+    --bs-btn-hover-border-color: #6528E0;
+    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6528E0;
+    --bs-btn-active-border-color: #6528E0;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6528E0;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6528E0;
+    --bs-gradient: none;
+}
+.carousel-control-next, .carousel-control-prev{
+  width: 5%;
+}
+ .carousel-control-prev:hover{
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,0.7679446778711485) 0%, rgba(0,0,0,0) 100%);
+}
+.carousel-control-next:hover{
+  background: rgb(0,0,0);
+  background: linear-gradient(-90deg, rgba(0,0,0,0.7679446778711485) 0%, rgba(0,0,0,0) 100%);
+  
+}
+/* .btn-success{
+    --bs-btn-color: #6528E0;
+    --bs-btn-bg: #6528E0;
+    --bs-btn-border-color: #6528E0;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #6528e0b7;
+    --bs-btn-hover-border-color: #6528e0b7;
+    --bs-btn-focus-shadow-rgb: 13,110,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6528E0;
+    --bs-btn-active-border-color: #6528E0;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6528E0;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6528E0;
+    --bs-gradient: none;
+} */
+</style>
+
+{% endblock style %} {% block body %}
+<section class="homeApp">
+  <div class="bg-light">
+    
+    <!-- <div class="container text-center pt-2 pb-5 py-lg-6">
+      <h1 class="logo display-3 mb-4">Movie Loverss</h1>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="lead text-dark mb-0">
+            A Place Where You Find News Related to <b>Entertainment Media</b> First
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    
+    
+    <main class="__web-inspector-hide-shortcut__">
+      
+      <header>
+        <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <!-- crousals -->
+          <div class="carousel-inner">
+            
+            <a href="blog/{{latestPost.slug}}">
+              
+              <div class="carousel-item banner bImg1 active">
+                <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                <div class="banner_contents">
+                  <h1 class='banner_title'>{{latestPost.title}}</h1>
+                  
+                  <button class="banner_button hide">
+                    <PlayArrowIcon />Continue reading
+                  </button>
+                  
+                  <h1 class="banner_description hide">{{latestPost.preContent|truncatewords:20}}</h1>
+                </div>
+              </div>
+            </a>
+            
+            {% for item in postViews %}
+            <a href="blog/{{item.slug}}">
+              <div class="carousel-item banner" style=" background-image: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 52%, rgba(0,0,0,0.5) 100%),url('/media/{{item.poster}}');">
+                <div class="banner_contents">
+                  <h1 class='banner_title'>{{item.title}}</h1>
+                
+                  <button class="banner_button hide">
+                    <PlayArrowIcon />Continue reading
+                  </button>
+                
+                  <h1 class="banner_description hide">{{item.preContent|truncatewords:20}}</h1>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+
+            
+          </div>
+          <!-- buttons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          
+        </div>
+      </header> 
+      
+      <hr class="mt-5">
+     
+      <h3 class="mb-4" style="text-align: center;font-family: futura-pt;
+      letter-spacing: 0.1em;
+      font-size: 42px;
+      font-weight: lighter;
+      color: #081359;">Latest Blogs</h3>
+      <main class="container grid">
+        {% for item in recentPost %}
+        <article>
+          <div class="td_module_column rounded">
+            <div
+              class="td_module_flex td_module_flex_3 td_module_wrap td-animation-stack rounded"
+            >
+              <div class="td-module-container td-category-pos- rounded">
+                <div class="td-image-container">
+                  <div class="td-module-thumb">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      class="td-image-wrap"
+                      title="Responsive Website With HTML, CSS &amp; Javascript"
+                      ><span
+                        class="entry-thumb td-thumb-css td-animation-stack-type0-2"
+                        data-type="css_image"
+                        data-img-url="/media/{{item.thumbnail}}"
+                        style="
+                          background-image: url('/media/{{item.thumbnail}}');
+                        "
+                      ></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="td-module-meta-info">
+                  <h3 class="entry-title td-module-title">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      >{{item.title|truncatewords:10}}</a
+                    >
+                    <span class="text-muted hide hideDate" style="font-size: 12px;float: right;"
+                      >{{item.pub_date}}</span
+                    >
+                  </h3>
+                  
+                  <div class="td-editor-date"  style="
+                  max-width: 92%;
+                  flex: 30%;
+                  font-size: 15px;
+                  ">
+
+                    <p class="preview card-text hide" style="line-height: initial">
+                      {{item.preContent|truncatewords:15}}
+                    </p>
+                  </div>
+                  <a href="/blog/{{item.slug}}" style="
+                  flex: 40%;
+                  display: flex;
+                  justify-content: end;
+                  align-items: center;
+                  /* justify-items: center; */
+                  margin-right: 24px;
+              ">   
+                  <button type="button" class="btn btn-outline-primary" style="float:right;">
+                    Continue Reading
+                  </button>               
+                </a>   
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </main>
+      <p
+        class="lead mt-2 mb-2"
+        style="align-items: center; justify-content: center; display: flex"
+      >
+        <a
+          href="blog/"
+          role="button"
+          class="btn btn-outline-primary text-blue fw-bold"
+          >View More</a
+        >
+      </p>
+      <hr>
+      
+      <h3 class="mb-4" style="text-align: center;font-family: futura-pt;
+        letter-spacing: 0.1em;
+        font-size: 42px;
+        font-weight: lighter;
+        color: #081359;">Popular Blogs</h3>
+      <main class="container grid">
+        {% for item in postViews %}
+        <article>
+          <div class="td_module_column rounded">
+            <div
+              class="td_module_flex td_module_flex_3 td_module_wrap td-animation-stack rounded"
+            >
+              <div class="td-module-container td-category-pos- rounded">
+                <div class="td-image-container">
+                  <div class="td-module-thumb">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      class="td-image-wrap"
+                      title="Responsive Website With HTML, CSS &amp; Javascript"
+                      ><span
+                        class="entry-thumb td-thumb-css td-animation-stack-type0-2"
+                        data-type="css_image"
+                        data-img-url="/media/{{item.thumbnail}}"
+                        style="
+                          background-image: url('/media/{{item.thumbnail}}');
+                        "
+                      ></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="td-module-meta-info">
+                  <h3 class="entry-title td-module-title">
+                    <a
+                      href="/blog/{{item.slug}}"
+                      rel="bookmark"
+                      >{{item.title|truncatewords:10}}</a
+                    >
+                    <span class="text-muted hide hideDate" style="font-size: 12px;float: right;"
+                      >{{item.pub_date}}</span
+                    >
+                  </h3>
+                  
+                  <div class="td-editor-date"  style="
+                  max-width: 92%;
+                  flex: 30%;
+                  font-size: 15px;
+                  ">
+
+                    <p class="preview card-text hide" style="line-height: initial">
+                      {{item.preContent|truncatewords:15}}
+                    </p>
+                  </div>
+                  <a href="/blog/{{item.slug}}" style="
+                  flex: 40%;
+                  display: flex;
+                  justify-content: end;
+                  align-items: center;
+                  /* justify-items: center; */
+                  margin-right: 24px;
+              ">   
+                  <button type="button" class="btn btn-outline-primary" style="float:right;">
+                    Continue Reading
+                  </button>               
+                </a>   
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </main>
+      <hr>
+      
+    </main>
+  </div>
+</section>
+
+{% endblock %}

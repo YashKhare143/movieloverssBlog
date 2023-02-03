@@ -1,0 +1,122 @@
+{% extends 'basic.html' %} {% block title %} MovieLoverss - ContactUs {% endblock %}
+{% block contactactive %} active {% endblock contactactive %} 
+{% block Scontactactive %} active {% endblock Scontactactive %} 
+{%block NoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock NoOfYouWillLoveToKnowPosts %}
+{%block NoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock NoOFSuperHeroPosts %}
+{%block NoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock NoOFHollywoodPost %}
+{%block NoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock NoOFBollywoodPost %}
+{%block NoOFAnimePost %}{{NoOFAnimePosts}}{% endblock NoOFAnimePost %}
+
+{%block SNoOfYouWillLoveToKnowPosts %}{{NoOfYouWillLoveToKnowPosts}}{% endblock SNoOfYouWillLoveToKnowPosts %}
+{%block SNoOFSuperHeroPosts %}{{NoOFSuperHeroPosts}}{% endblock SNoOFSuperHeroPosts %}
+{%block SNoOFHollywoodPost %}{{NoOFHollywoodPost}}{% endblock SNoOFHollywoodPost %}
+{%block SNoOFBollywoodPost %}{{NoOFBollywoodPost}}{% endblock SNoOFBollywoodPost %}
+{%block SNoOFAnimePost %}{{NoOFAnimePosts}}{% endblock SNoOFAnimePost %}
+
+{%block navbar %}navbar-light{% endblock navbar %} 
+{%block navbg %}bg-light{% endblock navbg %}
+
+{%block navbar2 %}navbar-light{% endblock navbar2 %} 
+{%block navbg2 %}bg-light{% endblock navbg2 %}
+
+{% block style %} 
+
+<style>
+  .contact {
+    color:rgb(0, 0, 0);
+      max-width: 530px;
+      margin-top: 8%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 50px 2%;
+      /* background-color: #e7d9e9ce; */
+      box-shadow: -1px 5px 15px  6px rgb(0 0 0 / 32%);
+  }
+</style>
+
+{% endblock style %} 
+{%block body %}
+<section class="ContactApp">
+  <div
+    class="contact container rounded  text-bg-dark"
+  >
+    <form method="post" action="/contactus">
+      {% csrf_token %}
+      <h3 class="mb-3">Contact MLBlog</h3>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="name"
+          placeholder="Enter your name"
+          name="name"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="emailHelp"
+          placeholder="youremail@example.com"
+          name="email"
+          required
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input
+          type="phone"
+          class="form-control"
+          id="phone"
+          name="phone"
+          placeholder="Enter PhoneNumber With Country Code"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          aria-describedby="subject"
+          placeholder="subject"
+          name="subject"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="content" class="form-label"
+          >Describe your query here :)
+        </label>
+        <textarea
+          class="form-control"
+          name="content"
+          id="content"
+          cols="30"
+          rows="5"
+          placeholder="Your message"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-warning py-1 px-2" style="float: right">
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}
