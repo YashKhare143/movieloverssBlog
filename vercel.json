@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "build": [
+  "builds": [
     {
-      "src": "poll/wsgi.py",
+      "src": "mac/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "poll/wsgi.py"
+      "dest": "mac/wsgi.py"
     }
   ]
 }
